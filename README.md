@@ -16,7 +16,7 @@
 ![Kubernetes](/.github/assets/img/kubernetes-logo-color.png)
 
 <div align=>
-	<img align="right" width="250px" src=/.github/assets/img/crio-stacked-color.png>
+	<img align="right" width="200px" src=/.github/assets/img/crio-stacked-color.png>
 </div> 
 
 
