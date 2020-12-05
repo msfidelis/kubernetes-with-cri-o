@@ -52,6 +52,10 @@
 ansible-playbook kubernetes-with-crio.yml
 ```
 
+#### Example with crictl instead of docker
+
+![Example](/.github/assets/img/example.png)
+
 ## Author
 
 👤 **Matheus Fidelis**
