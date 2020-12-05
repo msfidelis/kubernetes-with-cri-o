@@ -4,9 +4,9 @@
   become: yes
   become_user: root
   roles:
-    # - { role: commons }
+    - { role: commons }
     - { role: cri-o }
-    # - { role: kubernetes }
+    - { role: kubernetes }
 
 - hosts: masters
   gather_facts: true
