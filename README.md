@@ -13,6 +13,8 @@
 
 > Example to build Kubernetes Clusters using CRI-O runtime instead of Docker
 
+![Cri-O](/.github/assets/img/crio-logo.png) 
+
 ### 🏠 [Homepage](/)
 
 ### ✨ [Demo](/)
