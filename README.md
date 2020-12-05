@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to Kubernetes setup with CRI-O Runtime 👋</h1>
+<h1 align="center">Kubernetes setup with CRI-O Runtime 👋</h1>
 <p>
   <a href="/" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
