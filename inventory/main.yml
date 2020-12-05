@@ -1,0 +1,14 @@
+all:
+  vars:
+    OS: "xUbuntu_18.04"
+    VERSION: "1.18"
+  children:
+    kubernetes:
+      children: 
+        masters:
+          hosts:
+            34.72.223.180:
+        nodes:
+          hosts:
+            35.238.64.247:
+            35.194.29.31:

@@ -1,0 +1,90 @@
+- name: "modprobe overlay"
+  modprobe:
+    name: overlay
+    state: present
+
+- name: "modprobe br_netfilter"
+  modprobe:
+    name: br_netfilter
+    state: present
+
+- name: "sysctl"
+  shell: "sysctl --system"
+
+- name: Put kubernetes-cri template
+  template: 
+    src: 99-kubernetes-cri.conf.j2
+    dest: /etc/sysctl.d/99-kubernetes-cri.conf
+    mode: 777
+
+- name: Put 10-crio.conf template
+  template:
+    src: 10-crio.conf.j2
+    dest: /etc/cni/net.d/10-crio.conf
+    mode: 777
+
+- name: Put kubelet template
+  template: 
+    src: kubelet.j2
+    dest: /etc/default/kubelet
+    mode: 777
+
+- name: Get Cri-o apt-key
+  apt_key: 
+    url: https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/{{ OS }}/Release.key
+    state: present
+
+- name: Get Cri-o apt-key
+  apt_key: 
+    url: https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:cri-o:{{ VERSION }}/{{ OS}}/Release.key
+    state: present
+
+- name: Add Cri-o stable repo
+  apt_repository:
+    repo: deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/{{ OS }}/ /
+    state: present
+    filename: cri-o-stable
+
+
+- name: Add Cri-o stable repo
+  apt_repository:
+    repo: deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/{{ VERSION }}/{{ OS }}/ /
+    state: present
+    filename: cri-o-{{ VERSION }}
+
+- name: update apt
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: install required packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: true
+    state: present
+  vars:
+    packages:
+      - cri-o-1.17
+      - cri-o-runc
+      - cri-tools
+      - cri-o-runc
+      - runc
+
+- name: Reload configs
+  systemd: daemon_reload=yes
+
+- name: Enable Cri-o Service
+  systemd:
+    name: crio
+    enabled: yes
+
+- name: Restart Cri-o
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: crio
+
+- name: Make sure a crio is running
+  systemd:
+    state: started
+    name: crio

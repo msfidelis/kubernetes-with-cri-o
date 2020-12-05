@@ -1,0 +1,12 @@
+- name: Kubeadm reset
+  shell: kubeadm reset -f >> reset.log
+  args:
+    chdir: $HOME
+    creates: reset.log
+
+- name: Join node to cluster
+  shell: "{{ hostvars[groups['masters'][0]]['join_command'] }} >> node.log"
+  ignore_errors: yes
+  args:
+    chdir: $HOME
+    creates: node.log

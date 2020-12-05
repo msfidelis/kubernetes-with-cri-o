@@ -1,0 +1,35 @@
+- name: Initialize Kubernetes Cluster
+  shell: kubeadm init --pod-network-cidr 10.244.0.0/16 --ignore-preflight-errors=NumCPU >> cluster_init.log
+  args:
+    chdir: $HOME
+    creates: cluster_init.log
+
+- name: Create .kube directory
+  file: 
+    path: $HOME/.kube
+    state: directory
+    owner: root
+    group: root
+    mode: 0775
+
+- name: Copy default cluster configuration
+  shell: cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  args: 
+    chdir: $HOME
+    creates: $HOME/.kube/config
+
+- name: Change config mode
+  file:
+    path: $HOME/.kube/config
+    state: file
+    owner: root
+    group: root 
+    mode: 0660
+
+- name: Put template kubelet file
+  template: 
+    src: kubelet-config.yml.j2
+    dest: /var/lib/kubelet/config.yaml
+    owner: root
+    group: root 
+    mode: 0777

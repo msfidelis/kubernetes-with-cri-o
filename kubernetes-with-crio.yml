@@ -1,0 +1,25 @@
+- hosts: kubernetes
+  gather_facts: true
+  remote_user: matheus
+  become: yes
+  become_user: root
+  roles:
+    # - { role: commons }
+    - { role: cri-o }
+    # - { role: kubernetes }
+
+- hosts: masters
+  gather_facts: true
+  remote_user: matheus
+  become: yes
+  become_user: root
+  roles:
+    - { role: masters }
+
+- hosts: nodes
+  gather_facts: true
+  remote_user: matheus
+  become: yes
+  become_user: root
+  roles:
+    - { role: nodes }
