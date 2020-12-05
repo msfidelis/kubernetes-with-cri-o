@@ -19,12 +19,25 @@
 
 ## Table of Contents
 
-* Terraform Examples for Labs
-* * [Google Cloud Platform](/terraform/gcp)
-* CRI-O
-* * [Official Website](https://cri-o.io)
-* * [Github](https://github.com/cri-o/cri-o)
-* * [crictl CRI-Tools](https://github.com/kubernetes-sigs/cri-tools/blob/master/docs/crictl.md)
+* **Terraform Examples for Labs**
+  * [Google Cloud Platform](/terraform/gcp)
+* **CRI-O**
+  * [Official Website](https://cri-o.io)
+  * [Official Github](https://github.com/cri-o/cri-o)
+  * [crictl CRI-Tools](https://github.com/kubernetes-sigs/cri-tools/blob/master/docs/crictl.md)
+* **Kubernetes**  
+  * [Official Website](https://kubernetes.io)
+  * [Official Docs](https://kubernetes.io/docs/home/)
+  * [Official Github](https://github.com/kubernetes)
+* **Cloud Native Computing Foundation**  
+  * [Official Website](https://www.cncf.io)
+  * [Cloud Native Definition](https://github.com/cncf/toc/blob/master/DEFINITION.md)
+  * [Official Github](https://github.com/cncf)
+* **Ansible**  
+  * [Official Website](https://www.ansible.com)
+  * [Official Docs](https://docs.ansible.com)
+  * [Official Github](https://github.com/ansible/ansible)
+  * [installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
 ## Ansible Example
 
