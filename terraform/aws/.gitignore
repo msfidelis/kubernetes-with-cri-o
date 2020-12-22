@@ -1,0 +1,5 @@
+cncf_key.pem
+cncf_key.pub
+serviceaccount.json
+.terraform*
+terraform.tf*
