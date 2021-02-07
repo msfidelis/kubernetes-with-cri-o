@@ -4,3 +4,18 @@ resource "aws_vpc" "cluster_vpc" {
     enable_dns_hostnames = true
     tags = merge(var.tags, { Name = format("%s-vpc", var.project_name) })
 }
+
+# Internet Gateway
+resource "aws_internet_gateway" "gw" {
+  vpc_id = aws_vpc.cluster_vpc.id
+  tags = {
+    Name = format("%s-igw", var.project_name)
+  }
+}
+
+# Route to Internet Gateway
+resource "aws_route" "internet_access" {
+  route_table_id         = aws_vpc.cluster_vpc.main_route_table_id
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id             = aws_internet_gateway.gw.id
+}

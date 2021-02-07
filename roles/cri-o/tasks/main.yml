@@ -17,6 +17,11 @@
     dest: /etc/sysctl.d/99-kubernetes-cri.conf
     mode: 777
 
+- name: Creates directory
+  file:
+    path: /etc/cni/net.d
+    state: directory    
+
 - name: Put 10-crio.conf template
   template:
     src: 10-crio.conf.j2
@@ -45,10 +50,9 @@
     state: present
     filename: cri-o-stable
 
-
 - name: Add Cri-o stable repo
   apt_repository:
-    repo: deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/{{ VERSION }}/{{ OS }}/ /
+    repo: deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/{{ VERSION }}/{{ OS }}/ /
     state: present
     filename: cri-o-{{ VERSION }}
 
@@ -64,8 +68,7 @@
     state: present
   vars:
     packages:
-      - cri-o-1.17
-      - cri-o-runc
+      - cri-o
       - cri-tools
       - cri-o-runc
       - runc

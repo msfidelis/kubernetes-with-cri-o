@@ -1,6 +1,6 @@
 - hosts: kubernetes
   gather_facts: true
-  remote_user: matheus
+  remote_user: ubuntu
   become: yes
   become_user: root
   roles:
@@ -10,7 +10,7 @@
 
 - hosts: masters
   gather_facts: true
-  remote_user: matheus
+  remote_user: ubuntu
   become: yes
   become_user: root
   roles:
@@ -18,7 +18,7 @@
 
 - hosts: nodes
   gather_facts: true
-  remote_user: matheus
+  remote_user: ubuntu
   become: yes
   become_user: root
   roles:

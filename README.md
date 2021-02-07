@@ -48,6 +48,8 @@
 
 ## Ansible Example
 
+Edit your `ansible.cfg` file to configure your private key, inventory e etc
+
 ```sh
 ansible-playbook kubernetes-with-crio.yml
 ```
