@@ -18,3 +18,12 @@
     packages: 
       - kubelet
       - kubeadm
+
+- name: Put kubelet template
+  template: 
+    src: kubelet.j2
+    dest: /etc/default/kubelet
+    mode: 777
+  
+- name: Configure ip_forward
+  shell: echo '1' > /proc/sys/net/ipv4/ip_forward

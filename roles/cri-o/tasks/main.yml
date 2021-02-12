@@ -28,11 +28,11 @@
     dest: /etc/cni/net.d/10-crio.conf
     mode: 777
 
-- name: Put kubelet template
-  template: 
-    src: kubelet.j2
-    dest: /etc/default/kubelet
-    mode: 777
+- name: "Put storage template"
+  template:
+    src: storage.conf.j2
+    dest: /etc/containers/storage.conf
+    mode: 0777
 
 - name: Get Cri-o apt-key
   apt_key: 
