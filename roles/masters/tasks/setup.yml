@@ -13,10 +13,13 @@
     mode: 0775
 
 - name: Copy default cluster configuration
-  shell: cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-  args: 
-    chdir: $HOME
-    creates: $HOME/.kube/config
+  copy:
+    src: /etc/kubernetes/admin.conf
+    dest: $HOME/.kube/config
+    remote_src: yes
+    owner: root
+    group: root
+    mode: 0660    
 
 - name: Change config mode
   file:
