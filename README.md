@@ -25,9 +25,11 @@
 ### ✨ [Demo](/)
 
 ## Table of Contents
-
+* **Youtube**
+  * [Kubernetes com CRI-O - Subindo um cluster do zero PT-BR](https://www.youtube.com/watch?v=3jS25eLz9mY)
 * **Terraform Examples for Labs**
   * [Google Cloud Platform](/terraform/gcp)
+  * [AWS](/terraform/aws)
 * **CRI-O**
   * [Official Website](https://cri-o.io)
   * [Official Github](https://github.com/cri-o/cri-o)
