@@ -27,6 +27,7 @@
 ## Table of Contents
 * **Youtube**
   * [Kubernetes com CRI-O - Subindo um cluster do zero PT-BR](https://www.youtube.com/watch?v=3jS25eLz9mY)
+  * [CNCF Playlist PT-BR](https://www.youtube.com/watch?v=pFstphlh5A8&list=PLsyPhquWMjqEBjY0neO8R7qGIRP0Kkwm3)
 * **Terraform Examples for Labs**
   * [Google Cloud Platform](/terraform/gcp)
   * [AWS](/terraform/aws)
