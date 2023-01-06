@@ -1,16 +1,17 @@
 all:
   vars:
-    OS: "xUbuntu_18.04"
-    VERSION: "1.20"
+    OS: xUbuntu_18.04
+    VERSION: 1.21
+    ansible_ssh_user: ubuntu
   children:
     kubernetes:
       children: 
         masters:
           hosts:
-            3.81.73.171:
+            44.212.22.25:
         nodes:
           hosts:
-            3.208.89.100:
-            3.238.224.32:
-            3.235.250.40:
-            3.216.30.181:
+            54.91.241.98:
+            54.242.59.237:
+            3.85.126.235:
+            54.84.241.148:
