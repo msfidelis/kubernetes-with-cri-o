@@ -38,15 +38,16 @@
     url: https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:cri-o:{{ VERSION }}/{{ OS}}/Release.key
     state: present
 
+
 - name: Add Cri-o stable repo
   apt_repository:
-    repo: deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/{{ OS }}/ /
+    repo: "deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/{{ OS }}/ /"
     state: present
     filename: cri-o-stable
 
 - name: Add Cri-o stable repo
   apt_repository:
-    repo: deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/{{ VERSION }}/{{ OS }}/ /
+    repo: "deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/{{ VERSION }}/{{ OS }}/ /"
     state: present
     filename: cri-o-{{ VERSION }}
 
