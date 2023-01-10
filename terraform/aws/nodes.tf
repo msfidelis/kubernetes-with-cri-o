@@ -11,11 +11,13 @@ resource "aws_instance" "nodes" {
     vpc_security_group_ids = [ 
         aws_security_group.kubernetes.id
     ]
+    user_data     = templatefile("${path.module}/userdata.sh", {
+        hostname  = format("k8s-node-%s", count.index)
+    })
 
     key_name        = aws_key_pair.cluster_key.key_name
 
     tags = merge(var.tags, { 
         Name = format("k8s-node-%s", count.index)
     })
-
 }

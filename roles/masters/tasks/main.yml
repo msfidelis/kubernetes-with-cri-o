@@ -1,3 +1,4 @@
 - include_tasks: "setup.yml"
+- include_tasks: "wait_node_ready.yml"
 - include_tasks: "flannel.yml"
 - include_tasks: "token.yml"
